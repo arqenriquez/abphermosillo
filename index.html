@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABP - Arquidiócesis de Hermosillo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --navy: #001f3f;
+            --navy-light: #073b6e;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-navy { background-color: var(--navy); }
+        .text-navy { color: var(--navy); }
+        .border-navy { border-color: var(--navy); }
+        
+        .carousel-item {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .carousel-item.active {
+            display: block;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: white;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .section-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 31, 63, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-navy text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo Section -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="showPage('home')">
+                    <div class="bg-white p-1 rounded-full w-12 h-12 flex items-center justify-center overflow-hidden">
+                        <img src="ABP Logo PNG.png" alt="ABP Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentElement.innerHTML='<i data-lucide='book-open-check' class='text-navy w-8 h-8'></i>'; lucide.createIcons();">
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold tracking-tight block leading-none">ABP</span>
+                        <span class="text-xs uppercase tracking-widest opacity-80">Hermosillo</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#inicio" onclick="showPage('home')" class="nav-link">Inicio</a>
+                    <a href="#nosotros" onclick="showPage('home')" class="nav-link">¿Quiénes Somos?</a>
+                    <a href="#instituto" onclick="showPage('home')" class="nav-link">Instituto Bíblico</a>
+                    <a href="#" onclick="showPage('subsidios')" class="nav-link">Subsidios</a>
+                    <a href="#eventos" onclick="showPage('home')" class="nav-link">Eventos</a>
+                    <a href="#contacto" onclick="showPage('home')" class="nav-link border border-white/30 px-4 py-1 rounded-full hover:bg-white hover:text-navy transition-all">Contacto</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="p-2 focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Content -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-light px-4 pt-2 pb-6 space-y-2">
+            <a href="#inicio" onclick="showPage('home')" class="block py-2">Inicio</a>
+            <a href="#nosotros" onclick="showPage('home')" class="block py-2">¿Quiénes Somos?</a>
+            <a href="#instituto" onclick="showPage('home')" class="block py-2">Instituto Bíblico</a>
+            <a href="#" onclick="showPage('subsidios')" class="block py-2">Subsidios</a>
+            <a href="#eventos" onclick="showPage('home')" class="block py-2">Eventos</a>
+            <a href="#contacto" onclick="showPage('home')" class="block py-2">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main id="main-content">
+        
+        <!-- PAGE: HOME -->
+        <div id="home-page" class="page-content">
+            
+            <!-- Hero Carousel -->
+            <section id="inicio" class="relative h-[500px] md:h-[650px] overflow-hidden bg-slate-900">
+                <div class="carousel-container h-full">
+                    <!-- Slide 1 -->
+                    <div class="carousel-item active h-full relative">
+                        <img src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&q=80&w=2000" alt="Estudio Bíblico" class="w-full h-full object-cover opacity-60">
+                        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                            <div class="max-w-3xl">
+                                <h1 class="text-white text-4xl md:text-6xl font-serif mb-4">La Palabra de Dios en el corazón de nuestra Iglesia</h1>
+                                <p class="text-white/90 text-lg md:text-xl">Animación Bíblica de la Pastoral - Arquidiócesis de Hermosillo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="carousel-item h-full relative">
+                        <img src="https://images.unsplash.com/photo-1438029071396-1e831a7fa6d8?auto=format&fit=crop&q=80&w=2000" alt="Comunidad" class="w-full h-full object-cover opacity-60">
+                        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                            <div class="max-w-3xl">
+                                <h1 class="text-white text-4xl md:text-6xl font-serif mb-4">Encuentro, Estudio y Oración</h1>
+                                <p class="text-white/90 text-lg md:text-xl">Formando discípulos misioneros a través de las Sagradas Escrituras</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Controls -->
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full text-white transition-all">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full text-white transition-all">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </section>
+
+            <!-- ¿Quiénes Somos? -->
+            <section id="nosotros" class="py-20 px-4">
+                <div class="max-w-5xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-serif text-navy mb-8">¿Quiénes Somos?</h2>
+                    <div class="grid md:grid-cols-2 gap-12 text-left">
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold flex items-center gap-2">
+                                <i data-lucide="cross" class="text-navy w-5 h-5"></i> Nuestro Ser
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Somos la comisión arquidiocesana encargada de promover que la Sagrada Escritura sea el alma de toda la actividad evangelizadora. Buscamos que cada bautizado tenga un encuentro personal con Cristo a través de Su Palabra.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <h3 class="text-xl font-bold flex items-center gap-2">
+                                <i data-lucide="activity" class="text-navy w-5 h-5"></i> Nuestro Quehacer
+                            </h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Coordinamos esfuerzos de formación bíblica, elaboramos subsidios para las parroquias y animamos el Mes de la Biblia, asegurando que la animación bíblica no sea solo un área, sino el espíritu de toda la pastoral.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Instituto Bíblico Católico -->
+            <section id="instituto" class="py-20 bg-slate-50 px-4 border-y border-slate-200">
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex flex-col md:flex-row gap-12 items-center">
+                        <div class="md:w-1/2">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800" alt="Instituto Bíblico" class="rounded-2xl shadow-2xl relative z-10">
+                                <div class="absolute -bottom-6 -right-6 w-full h-full border-4 border-navy rounded-2xl z-0"></div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 space-y-6">
+                            <h2 class="text-3xl md:text-4xl font-serif text-navy">Instituto Bíblico Católico de Hermosillo</h2>
+                            <p class="text-lg text-gray-700">
+                                Un espacio de formación académica y espiritual para profundizar en la revelación divina. Ofrecemos cursos, diplomados y talleres presenciales y en línea.
+                            </p>
+                            
+                            <div class="space-y-4 pt-4">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-navy text-white p-2 rounded-lg"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                                    <div>
+                                        <p class="font-bold">Ubicación</p>
+                                        <p class="text-sm text-gray-600">Av. Universidad S/N, Col. Centro, Hermosillo, Sonora.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-navy text-white p-2 rounded-lg"><i data-lucide="phone" class="w-5 h-5"></i></div>
+                                    <div>
+                                        <p class="font-bold">Contacto</p>
+                                        <p class="text-sm text-gray-600">(662) 123 4567 | info@ibchermosillo.org</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button class="bg-navy text-white px-8 py-3 rounded-lg hover:bg-navy-light transition-colors font-semibold shadow-lg">
+                                Ver Calendario Escolar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Subsidios y Recursos (Bloque Visible) -->
+            <section class="py-20 px-4 bg-white">
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+                        <div class="md:w-1/2">
+                            <div class="relative">
+                                <img src="https://images.unsplash.com/photo-1491843351663-8c4163ad2579?auto=format&fit=crop&q=80&w=800" alt="Materiales Bíblicos" class="rounded-2xl shadow-2xl relative z-10">
+                                <div class="absolute -top-6 -left-6 w-full h-full border-4 border-slate-100 rounded-2xl z-0"></div>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 space-y-6">
+                            <div class="inline-block bg-navy/10 text-navy px-4 py-1 rounded-full text-sm font-bold uppercase tracking-wider">
+                                Material de Apoyo
+                            </div>
+                            <h2 class="text-3xl md:text-4xl font-serif text-navy">Subsidios y Documentos Pastorales</h2>
+                            <p class="text-lg text-gray-700">
+                                Ponemos a disposición de todas las parroquias, movimientos y fieles en general, una biblioteca digital de materiales diseñados para profundizar en el estudio de las Sagradas Escrituras.
+                            </p>
+                            <ul class="space-y-3 text-gray-600">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="text-navy w-5 h-5"></i> Guías para el Mes de la Biblia</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="text-navy w-5 h-5"></i> Esquemas de Lectio Divina</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="text-navy w-5 h-5"></i> Documentos del Magisterio</li>
+                            </ul>
+                            
+                            <button onclick="showPage('subsidios')" class="group flex items-center gap-3 bg-white border-2 border-navy text-navy px-8 py-3 rounded-lg hover:bg-navy hover:text-white transition-all font-semibold shadow-md">
+                                Explorar Biblioteca de Subsidios
+                                <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Próximos Eventos -->
+            <section id="eventos" class="py-20 bg-slate-50 px-4 border-t border-slate-200">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-serif text-navy mb-12 text-center">Próximos Eventos</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Event 1 -->
+                        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm section-card">
+                            <div class="bg-navy p-4 text-white text-center">
+                                <span class="block text-2xl font-bold">15</span>
+                                <span class="text-sm uppercase tracking-widest">Septiembre</span>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-bold text-lg mb-2">Apertura Mes de la Biblia</h4>
+                                <p class="text-sm text-gray-600 mb-4">Catedral Metropolitana de Hermosillo. 19:00 hrs.</p>
+                                <a href="#" class="text-navy font-semibold hover:underline flex items-center gap-1">Más info <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                            </div>
+                        </div>
+                        <!-- Event 2 -->
+                        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm section-card">
+                            <div class="bg-navy p-4 text-white text-center">
+                                <span class="block text-2xl font-bold">22</span>
+                                <span class="text-sm uppercase tracking-widest">Septiembre</span>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-bold text-lg mb-2">Taller de Lectio Divina</h4>
+                                <p class="text-sm text-gray-600 mb-4">Parroquia San José. Dirigido a agentes de pastoral.</p>
+                                <a href="#" class="text-navy font-semibold hover:underline flex items-center gap-1">Más info <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                            </div>
+                        </div>
+                        <!-- Event 3 -->
+                        <div class="bg-white border border-slate-200 rounded-xl overflow-hidden shadow-sm section-card">
+                            <div class="bg-navy p-4 text-white text-center">
+                                <span class="block text-2xl font-bold">05</span>
+                                <span class="text-sm uppercase tracking-widest">Octubre</span>
+                            </div>
+                            <div class="p-6">
+                                <h4 class="font-bold text-lg mb-2">Diplomado en Exégesis</h4>
+                                <p class="text-sm text-gray-600 mb-4">Inicio de ciclo en el Instituto Bíblico Católico.</p>
+                                <a href="#" class="text-navy font-semibold hover:underline flex items-center gap-1">Más info <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contacto -->
+            <section id="contacto" class="py-20 bg-white px-4">
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col md:flex-row">
+                        <div class="bg-navy p-12 text-white md:w-1/3 flex flex-col justify-between">
+                            <div>
+                                <h2 class="text-3xl font-serif mb-6">Contáctanos</h2>
+                                <p class="opacity-80 mb-8">Estamos para servirte y caminar juntos en la fe.</p>
+                            </div>
+                            <div class="space-y-4">
+                                <a href="#" class="flex items-center gap-3 hover:text-blue-300 transition-colors">
+                                    <i data-lucide="facebook"></i> ABP Hermosillo
+                                </a>
+                                <a href="#" class="flex items-center gap-3 hover:text-pink-300 transition-colors">
+                                    <i data-lucide="instagram"></i> @abp_hillo
+                                </a>
+                                <a href="#" class="flex items-center gap-3 hover:text-blue-400 transition-colors">
+                                    <i data-lucide="twitter"></i> @abpHillo
+                                </a>
+                            </div>
+                        </div>
+                        <div class="p-12 md:w-2/3">
+                            <form id="contactForm" class="space-y-4">
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="space-y-1">
+                                        <label class="text-xs font-bold uppercase text-gray-500">Nombre</label>
+                                        <input type="text" required class="w-full border-b-2 border-slate-200 py-2 focus:border-navy outline-none transition-colors">
+                                    </div>
+                                    <div class="space-y-1">
+                                        <label class="text-xs font-bold uppercase text-gray-500">Correo</label>
+                                        <input type="email" required class="w-full border-b-2 border-slate-200 py-2 focus:border-navy outline-none transition-colors">
+                                    </div>
+                                </div>
+                                <div class="space-y-1">
+                                    <label class="text-xs font-bold uppercase text-gray-500">Mensaje</label>
+                                    <textarea rows="4" required class="w-full border-b-2 border-slate-200 py-2 focus:border-navy outline-none transition-colors"></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-navy text-white py-4 rounded-xl font-bold hover:bg-navy-light transition-all shadow-lg">
+                                    Enviar Mensaje
+                                </button>
+                                <div id="formStatus" class="hidden text-center text-green-600 font-medium pt-2">
+                                    ¡Mensaje enviado con éxito! Nos comunicaremos pronto.
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PAGE: SUBSIDIOS (Listado de documentos) -->
+        <div id="subsidios-page" class="page-content hidden py-20 px-4 min-h-[70vh]">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex items-center gap-4 mb-12">
+                    <button onclick="showPage('home')" class="text-navy p-2 hover:bg-slate-100 rounded-full">
+                        <i data-lucide="arrow-left"></i>
+                    </button>
+                    <h2 class="text-4xl font-serif text-navy">Subsidios y Documentos</h2>
+                </div>
+                
+                <div class="grid gap-6">
+                    <!-- Doc 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 flex items-center justify-between group hover:border-navy transition-colors shadow-sm">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-red-50 text-red-600 p-3 rounded-xl group-hover:bg-red-600 group-hover:text-white transition-colors">
+                                <i data-lucide="file-text"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Guía para el Mes de la Biblia 2024</h4>
+                                <p class="text-sm text-gray-500">PDF | 4.5 MB | Publicado: 01 Ago 2024</p>
+                            </div>
+                        </div>
+                        <button class="bg-slate-100 p-3 rounded-full hover:bg-navy hover:text-white transition-all">
+                            <i data-lucide="download" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+
+                    <!-- Doc 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 flex items-center justify-between group hover:border-navy transition-colors shadow-sm">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-blue-50 text-blue-600 p-3 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                <i data-lucide="book-open"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Esquema de Lectio Divina Dominical</h4>
+                                <p class="text-sm text-gray-500">Documento | 1.2 MB | Publicado: Semanal</p>
+                            </div>
+                        </div>
+                        <button class="bg-slate-100 p-3 rounded-full hover:bg-navy hover:text-white transition-all">
+                            <i data-lucide="download" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+
+                    <!-- Doc 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 flex items-center justify-between group hover:border-navy transition-colors shadow-sm">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-purple-50 text-purple-600 p-3 rounded-xl group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                                <i data-lucide="music"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Cantoral Bíblico Arquidiocesano</h4>
+                                <p class="text-sm text-gray-500">PDF | 8.0 MB | Publicado: 15 May 2024</p>
+                            </div>
+                        </div>
+                        <button class="bg-slate-100 p-3 rounded-full hover:bg-navy hover:text-white transition-all">
+                            <i data-lucide="download" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white py-12 px-4 border-t border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-2">
+                    <i data-lucide="book-open-check" class="w-6 h-6"></i>
+                    <span class="text-xl font-bold">ABP Hermosillo</span>
+                </div>
+                <p class="text-sm opacity-60">© 2024 Arquidiócesis de Hermosillo. <br>Comisión de Animación Bíblica de la Pastoral.</p>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-blue-300 transition-colors"><i data-lucide="facebook"></i></a>
+                <a href="#" class="hover:text-pink-300 transition-colors"><i data-lucide="instagram"></i></a>
+                <a href="#" class="hover:text-blue-400 transition-colors"><i data-lucide="twitter"></i></a>
+                <a href="mailto:contacto@abphillo.org" class="hover:text-yellow-300 transition-colors"><i data-lucide="mail"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Carousel Logic
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Auto-rotation every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Page Navigation
+        function showPage(pageId) {
+            const home = document.getElementById('home-page');
+            const subsidios = document.getElementById('subsidios-page');
+            
+            if (pageId === 'home') {
+                home.classList.remove('hidden');
+                subsidios.classList.add('hidden');
+                window.scrollTo(0, 0);
+            } else if (pageId === 'subsidios') {
+                home.classList.add('hidden');
+                subsidios.classList.remove('hidden');
+                window.scrollTo(0, 0);
+            }
+            
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Form Handling
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const status = document.getElementById('formStatus');
+            status.classList.remove('hidden');
+            this.reset();
+            setTimeout(() => {
+                status.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
