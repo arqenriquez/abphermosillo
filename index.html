@@ -60,6 +60,23 @@
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 31, 63, 0.1);
         }
+
+        .logo-badge {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 9999px;
+            background: white;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-badge img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-800">
@@ -70,8 +87,8 @@
             <div class="flex justify-between h-20 items-center">
                 <!-- Logo Section -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="showPage('home')">
-                    <div class="bg-white p-1 rounded-full w-12 h-12 flex items-center justify-center overflow-hidden">
-                        <img src="ABPLogo.png" alt="ABP Logo" class="w-full h-full object-contain" onerror="this.onerror=null; this.parentElement.innerHTML='<i data-lucide='book-open-check' class='text-navy w-8 h-8'></i>'; lucide.createIcons();">
+                    <div class="logo-badge">
+                        <img src="ABP Logo PNG.png" alt="ABP Logo" onerror="this.onerror=null; this.parentElement.innerHTML='<i data-lucide='book-open-check' class='text-navy w-8 h-8'></i>'; lucide.createIcons();">
                     </div>
                     <div>
                         <span class="text-xl font-bold tracking-tight block leading-none">ABP</span>
@@ -488,3 +505,4 @@
     </script>
 </body>
 </html>
+
