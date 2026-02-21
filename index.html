@@ -14,7 +14,7 @@
             --navy-light: #073b6e;
         }
 
-        body {
+               body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
@@ -37,6 +37,10 @@
 
         .nav-link {
             position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             transition: color 0.3s;
         }
         .nav-link::after {
@@ -46,10 +50,36 @@
             height: 2px;
             bottom: -4px;
             left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             background-color: white;
             transition: width 0.3s;
         }
         .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .mobile-nav-link {
+            position: relative;
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 0.5rem 0;
+            text-align: center;
+            transition: color 0.3s;
+        }
+        .mobile-nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            transition: width 0.3s;
+        }
+        .mobile-nav-link:hover::after {
             width: 100%;
         }
 
