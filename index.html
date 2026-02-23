@@ -1,3 +1,4 @@
+/workspace/abphermosillo$ /bin/bash -lc cat index.html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,6 +34,29 @@
         }
         .carousel-item.active {
             display: block;
+        }
+
+        .carousel-item picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(0, 31, 63, 0.55) 0%, rgba(0, 31, 63, 0.72) 100%);
+        }
+
+        .carousel-dot {
+            width: 0.65rem;
+            height: 0.65rem;
+            border-radius: 9999px;
+            background-color: rgba(255, 255, 255, 0.45);
+            transition: all 0.25s ease;
+        }
+
+        .carousel-dot.active {
+            width: 1.8rem;
+            background-color: white;
         }
 
         .nav-link {
@@ -147,36 +171,59 @@
         <div id="home-page" class="page-content">
             
             <!-- Hero Carousel -->
-            <section id="inicio" class="relative h-[500px] md:h-[650px] overflow-hidden bg-slate-900">
+            <section id="inicio" class="relative h-[72vh] min-h-[500px] md:h-[78vh] md:min-h-[640px] overflow-hidden bg-slate-900">
                 <div class="carousel-container h-full">
                     <!-- Slide 1 -->
                     <div class="carousel-item active h-full relative">
-                        <img src="HERO-05.png" alt="Estudio Bíblico" class="w-full h-full object-cover opacity-60">
-                        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="hero-mobil-01.png">
+                            <img src="hero-desktop-01.png" alt="Estudio Bíblico" class="w-full h-full object-cover">
+                        </picture>
+                        <div class="absolute inset-0 hero-overlay flex items-center justify-center text-center px-4 sm:px-8">
                             <div class="max-w-3xl">
-                                <h1 class="text-white text-4xl md:text-6xl font-serif mb-4">La Palabra de Dios en el corazón de nuestra Iglesia</h1>
-                                <p class="text-white/90 text-lg md:text-xl">Animación Bíblica de la Pastoral - Arquidiócesis de Hermosillo</p>
+                                <span class="inline-block mb-4 bg-white/15 border border-white/20 text-white px-4 py-1 rounded-full text-xs md:text-sm uppercase tracking-widest">Animación Bíblica</span>
+                                <h1 class="text-white text-3xl sm:text-4xl md:text-6xl font-serif mb-4 leading-tight">La Palabra de Dios en el corazón de nuestra Iglesia</h1>
+                                <p class="text-white/90 text-base sm:text-lg md:text-xl">Animación Bíblica de la Pastoral · Arquidiócesis de Hermosillo</p>
                             </div>
                         </div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="carousel-item h-full relative">
-                        <img src="HERO-06.png" alt="Comunidad" class="w-full h-full object-cover opacity-60">
-                        <div class="absolute inset-0 flex items-center justify-center text-center px-4">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="hero-mobil-02.png">
+                            <img src="hero-desktop-02.png" alt="Comunidad en formación" class="w-full h-full object-cover">
+                        </picture>
+                        <div class="absolute inset-0 hero-overlay flex items-center justify-center text-center px-4 sm:px-8">
                             <div class="max-w-3xl">
-                                <h1 class="text-white text-4xl md:text-6xl font-serif mb-4">Encuentro, Estudio y Oración</h1>
-                                <p class="text-white/90 text-lg md:text-xl">La Palabra de Dios está llamada a ser el “ALMA” que nutra todas y cada una de las pastorales.</p>
+                                <span class="inline-block mb-4 bg-white/15 border border-white/20 text-white px-4 py-1 rounded-full text-xs md:text-sm uppercase tracking-widest">Formación y Misión</span>
+                                <h1 class="text-white text-3xl sm:text-4xl md:text-6xl font-serif mb-4 leading-tight">Encuentro, estudio y oración</h1>
+                                <p class="text-white/90 text-base sm:text-lg md:text-xl">La Sagrada Escritura está llamada a ser el alma que nutra cada pastoral en la arquidiócesis.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="carousel-item h-full relative">
+                        <picture>
+                            <source media="(max-width: 767px)" srcset="hero-mobil-03.png">
+                            <img src="hero-desktop-03.png" alt="Evangelización y comunidad" class="w-full h-full object-cover">
+                        </picture>
+                        <div class="absolute inset-0 hero-overlay flex items-center justify-center text-center px-4 sm:px-8">
+                            <div class="max-w-3xl">
+                                <span class="inline-block mb-4 bg-white/15 border border-white/20 text-white px-4 py-1 rounded-full text-xs md:text-sm uppercase tracking-widest">Discípulos misioneros</span>
+                                <h1 class="text-white text-3xl sm:text-4xl md:text-6xl font-serif mb-4 leading-tight">Una Iglesia que escucha, vive y anuncia</h1>
+                                <p class="text-white/90 text-base sm:text-lg md:text-xl">Acompañamos comunidades, escuelas bíblicas y agentes pastorales para evangelizar con la Palabra.</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- Carousel Controls -->
-                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full text-white transition-all">
+                <button onclick="prevSlide()" class="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full text-white transition-all" aria-label="Imagen anterior del hero">
                     <i data-lucide="chevron-left"></i>
                 </button>
-                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full text-white transition-all">
+                <button onclick="nextSlide()" class="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 p-2 rounded-full text-white transition-all" aria-label="Siguiente imagen del hero">
                     <i data-lucide="chevron-right"></i>
                 </button>
+                <div id="carousel-dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-3"></div>
             </section>
 
             <!-- ¿Quiénes Somos? -->
@@ -550,11 +597,24 @@
         // Carousel Logic
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-item');
+        const dotsContainer = document.getElementById('carousel-dots');
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+            dot.setAttribute('aria-label', `Ir al slide ${index + 1}`);
+            dot.addEventListener('click', () => showSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.carousel-dot');
 
         function showSlide(index) {
             slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
             currentSlide = (index + slides.length) % slides.length;
             slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
         }
 
         function nextSlide() {
