@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    --navy: #001f3f;
+    --navy-light: #073b6e;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+.bg-navy { background-color: var(--navy); }
+.text-navy { color: var(--navy); }
+.border-navy { border-color: var(--navy); }
+
+.carousel-item {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-item picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-overlay {
+    background: linear-gradient(180deg, rgba(0, 31, 63, 0.30) 0%, rgba(0, 31, 63, 0.45) 100%);
+}
+
+.carousel-dot {
+    width: 0.65rem;
+    height: 0.65rem;
+    border-radius: 9999px;
+    background-color: rgba(255, 255, 255, 0.45);
+    transition: all 0.25s ease;
+}
+
+.carousel-dot.active {
+    width: 1.8rem;
+    background-color: white;
+}
+
+.nav-link {
+    position: relative;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -4px;
+    height: 2px;
+    background-color: currentColor;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+    transform: scaleX(1);
+}
+
+.mobile-nav-link {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+.section-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 31, 63, 0.1);
+}
+
+.logo-badge {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 9999px;
+    background: white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(24px) scale(0.99);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-reveal.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
