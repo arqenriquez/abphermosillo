@@ -6,134 +6,7 @@
     <title>ABP - Arquidiócesis de Hermosillo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
-        
-        :root {
-            --navy: #001f3f;
-            --navy-light: #073b6e;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .bg-navy { background-color: var(--navy); }
-        .text-navy { color: var(--navy); }
-        .border-navy { border-color: var(--navy); }
-        
-        .carousel-item {
-            display: none;
-            transition: opacity 0.5s ease-in-out;
-        }
-        .carousel-item.active {
-            display: block;
-        }
-
-        .carousel-item picture {
-            display: block;
-            width: 100%;
-            height: 100%;
-        }
-
-        .hero-overlay {
-            background: linear-gradient(180deg, rgba(0, 31, 63, 0.30) 0%, rgba(0, 31, 63, 0.45) 100%);
-        }
-
-        .carousel-dot {
-            width: 0.65rem;
-            height: 0.65rem;
-            border-radius: 9999px;
-            background-color: rgba(255, 255, 255, 0.45);
-            transition: all 0.25s ease;
-        }
-
-        .carousel-dot.active {
-            width: 1.8rem;
-            background-color: white;
-        }
-
-        .nav-link {
-            position: relative;
-            color: inherit;
-            transition: color 0.3s;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -4px;
-            height: 2px;
-            background-color: currentColor;
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.3s ease;
-        }
-        .nav-link:hover::after,
-        .nav-link:focus-visible::after {
-            transform: scaleX(1);
-        }
-
-        .mobile-nav-link {
-            display: block;
-            width: fit-content;
-            margin: 0 auto;
-            padding: 0.5rem 0;
-            text-align: center;
-        }
-
-        .section-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .section-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 31, 63, 0.1);
-        }
-
-        .logo-badge {
-            width: 3.5rem;
-            height: 3.5rem;
-            border-radius: 9999px;
-            background: white;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-badge img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(24px) scale(0.99);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-            will-change: opacity, transform;
-        }
-
-        .scroll-reveal.is-visible {
-            opacity: 1;
-            transform: translateY(0) scale(1);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .scroll-reveal,
-            .scroll-reveal.is-visible {
-                opacity: 1;
-                transform: none;
-                transition: none;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-white text-slate-800">
 
@@ -144,7 +17,7 @@
                 <!-- Logo Section -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="showPage('home')">
                     <div class="logo-badge">
-                        <img src="ABPLogo.png" alt="ABP Logo" onerror="this.onerror=null; this.parentElement.innerHTML='<i data-lucide='book-open-check' class='text-navy w-8 h-8'></i>'; lucide.createIcons();">
+                        <img src="img/ABPLogo.png" alt="ABP Logo" onerror="this.onerror=null; this.parentElement.innerHTML='<i data-lucide='book-open-check' class='text-navy w-8 h-8'></i>'; lucide.createIcons();">
                     </div>
                     <div>
                         <span class="text-xl font-bold tracking-tight block leading-none">ABP</span>
@@ -196,8 +69,8 @@
                     <!-- Slide 1 -->
                     <div class="carousel-item active h-full relative">
                         <picture>
-                            <source media="(max-width: 767px)" srcset="hero-mobile-01.png">
-                            <img src="hero-desktop-01.png" alt="Estudio Bíblico" class="w-full h-full object-cover">
+                            <source media="(max-width: 767px)" srcset="img/hero-mobile-01.png">
+                            <img src="img/hero-desktop-01.png" alt="Estudio Bíblico" class="w-full h-full object-cover">
                         </picture>
                         <div class="absolute inset-0 hero-overlay flex items-center justify-center text-center px-4 sm:px-8">
                             <div class="max-w-3xl">
@@ -210,8 +83,8 @@
                     <!-- Slide 2 -->
                     <div class="carousel-item h-full relative">
                         <picture>
-                            <source media="(max-width: 767px)" srcset="hero-mobile-02.png">
-                            <img src="hero-desktop-02.png" alt="Comunidad en formación" class="w-full h-full object-cover">
+                            <source media="(max-width: 767px)" srcset="img/hero-mobile-02.png">
+                            <img src="img/hero-desktop-02.png" alt="Comunidad en formación" class="w-full h-full object-cover">
                         </picture>
                         <div class="absolute inset-0 hero-overlay flex items-center justify-center text-center px-4 sm:px-8">
                             <div class="max-w-3xl">
@@ -224,8 +97,8 @@
                     <!-- Slide 3 -->
                     <div class="carousel-item h-full relative">
                         <picture>
-                            <source media="(max-width: 767px)" srcset="hero-mobile-03.png">
-                            <img src="hero-desktop-03.png" alt="Evangelización y comunidad" class="w-full h-full object-cover">
+                            <source media="(max-width: 767px)" srcset="img/hero-mobile-03.png">
+                            <img src="img/hero-desktop-03.png" alt="Evangelización y comunidad" class="w-full h-full object-cover">
                         </picture>
                         <div class="absolute inset-0 hero-overlay flex items-center justify-center text-center px-4 sm:px-8">
                             <div class="max-w-3xl">
@@ -282,7 +155,7 @@
                     <div class="flex flex-col md:flex-row gap-12 items-center">
                         <div class="md:w-1/2">
                             <div class="relative">
-                                <img src="IBCAH-02.png" alt="Instituto Bíblico" class="rounded-2xl shadow-2xl relative z-10">
+                                <img src="img/IBCAH-02.png" alt="Instituto Bíblico" class="rounded-2xl shadow-2xl relative z-10">
                                 <div class="absolute -bottom-6 -right-6 w-full h-full border-4 border-navy rounded-2xl z-0"></div>
                             </div>
                         </div>
@@ -323,7 +196,7 @@
                     <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
                         <div class="md:w-1/2">
                             <div class="relative">
-                                <img src="EBP-03.png" alt="Escuelas Bíblicas Parroquiales" class="rounded-2xl shadow-2xl relative z-10">
+                                <img src="img/EBP-03.png" alt="Escuelas Bíblicas Parroquiales" class="rounded-2xl shadow-2xl relative z-10">
                                 <div class="absolute -bottom-6 -left-6 w-full h-full border-4 border-navy rounded-2xl z-0"></div>
                             </div>
                         </div>
@@ -402,7 +275,7 @@
                     <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
                         <div class="md:w-1/2">
                             <div class="relative">
-                                <img src="LECTIO-01.png" alt="Materiales Bíblicos" class="rounded-2xl shadow-2xl relative z-10">
+                                <img src="img/LECTIO-01.png" alt="Materiales Bíblicos" class="rounded-2xl shadow-2xl relative z-10">
                                 <div class="absolute -top-6 -left-6 w-full h-full border-4 border-slate-100 rounded-2xl z-0"></div>
                             </div>
                         </div>
@@ -545,8 +418,8 @@
                                 <i data-lucide="file-text"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold">Guía para el Mes de la Biblia 2025</h4>
-                                <p class="text-sm text-gray-500">PDF | 4.5 MB | Publicado: 01 Ago 2024</p>
+                                <h4 class="font-bold">Lectio Divina - Ciclo A - 2025 - 2026</h4>
+                                <p class="text-sm text-gray-500">PDF | 4.5 MB | Publicado: Dic 2025</p>
                             </div>
                         </div>
                         <button class="bg-slate-100 p-3 rounded-full hover:bg-navy hover:text-white transition-all">
@@ -557,12 +430,12 @@
                     <!-- Doc 2 -->
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 flex items-center justify-between group hover:border-navy transition-colors shadow-sm">
                         <div class="flex items-center gap-4">
-                            <div class="bg-blue-50 text-blue-600 p-3 rounded-xl group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                                <i data-lucide="book-open"></i>
+                            <div class="bg-red-50 text-red-600 p-3 rounded-xl group-hover:bg-red-600 group-hover:text-white transition-colors">
+                                <i data-lucide="file-text"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold">Lectio Divina - Ciclo a 2025 - 2026</h4>
-                                <p class="text-sm text-gray-500">Documento | 1.2 MB | Publicado: Semanal</p>
+                                <h4 class="font-bold">Domingo de la Palabra de Dios - 2026</h4>
+                                <p class="text-sm text-gray-500">Documento | 1.2 MB | Publicado: Enero 2026</p>
                             </div>
                         </div>
                         <button class="bg-slate-100 p-3 rounded-full hover:bg-navy hover:text-white transition-all">
@@ -573,12 +446,12 @@
                     <!-- Doc 3 -->
                     <div class="bg-white p-6 rounded-2xl border border-slate-200 flex items-center justify-between group hover:border-navy transition-colors shadow-sm">
                         <div class="flex items-center gap-4">
-                            <div class="bg-purple-50 text-purple-600 p-3 rounded-xl group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                                <i data-lucide="music"></i>
+                            <div class="bg-red-50 text-red-600 p-3 rounded-xl group-hover:bg-red-600 group-hover:text-white transition-colors">
+                                <i data-lucide="file-text"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold">Domingo de la Palabra de Dios 2026</h4>
-                                <p class="text-sm text-gray-500">PDF | 8.0 MB | Publicado: 15 May 2024</p>
+                                <h4 class="font-bold">Lectio Divina - Ciclo C - 2024 - 2025</h4>
+                                <p class="text-sm text-gray-500">PDF | 8.0 MB | Publicado: Nov 2024</p>
                             </div>
                         </div>
                         <button class="bg-slate-100 p-3 rounded-full hover:bg-navy hover:text-white transition-all">
@@ -610,107 +483,6 @@
         </div>
     </footer>
 
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
-
-        // Carousel Logic
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-item');
-        const dotsContainer = document.getElementById('carousel-dots');
-
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
-            dot.setAttribute('aria-label', `Ir al slide ${index + 1}`);
-            dot.addEventListener('click', () => showSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = document.querySelectorAll('.carousel-dot');
-
-        function showSlide(index) {
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = (index + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
-        }
-
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        // Auto-rotation every 5 seconds
-        setInterval(nextSlide, 5000);
-
-        // Page Navigation
-        function showPage(pageId) {
-            const home = document.getElementById('home-page');
-            const subsidios = document.getElementById('subsidios-page');
-            
-            if (pageId === 'home') {
-                home.classList.remove('hidden');
-                subsidios.classList.add('hidden');
-                window.scrollTo(0, 0);
-            } else if (pageId === 'subsidios') {
-                home.classList.add('hidden');
-                subsidios.classList.remove('hidden');
-                window.scrollTo(0, 0);
-            }
-            
-            // Close mobile menu if open
-            document.getElementById('mobile-menu').classList.add('hidden');
-        }
-
-        // Mobile Menu Toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Form Handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const status = document.getElementById('formStatus');
-            status.classList.remove('hidden');
-            this.reset();
-            setTimeout(() => {
-                status.classList.add('hidden');
-            }, 5000);
-        });
-        
-        // Scroll Animations
-        function initScrollAnimations() {
-            const animatedElements = document.querySelectorAll(
-                'section > div, .section-card, #subsidios-page .grid > div, #subsidios-page h2'
-            );
-
-            animatedElements.forEach((element, index) => {
-                element.classList.add('scroll-reveal');
-                element.style.transitionDelay = `${Math.min(index * 40, 240)}ms`;
-            });
-
-            const revealObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.15,
-                rootMargin: '0px 0px -40px 0px'
-            });
-
-            animatedElements.forEach((element) => revealObserver.observe(element));
-        }
-
-        initScrollAnimations();
-    </script>
+    <script src="main.js"></script>
 </body>
 </html>
